@@ -11,7 +11,7 @@
 - 分享并未实现ui，需要自己提供ui
 
 
-目前这个库还不稳定，很多细节并未仔细考虑，有些功能也并未进行测试，支持的平台也不多，欢迎大家 star/issue/pr，共同完善这个库
+目前这个库还不稳定，有些细节并未仔细考虑，有些功能也并未进行测试，支持的平台也不多，欢迎大家 star/issue/pr，共同完善这个库
 
 ### 关于授权
 
@@ -52,6 +52,8 @@
 
 
 ### 添加依赖
+
+[![](https://jitpack.io/v/czy1121/sdk3rd.svg)](https://jitpack.io/#czy1121/sdk3rd)
 
 ``` groovy
 repositories {

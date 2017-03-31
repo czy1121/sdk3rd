@@ -5,7 +5,7 @@
 
         <!-- 微信 -->
         <activity
-            android:name=".platforms.wechat.WXCallbackActivity"
+            android:name=".platforms.weixin.WXCallbackActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:launchMode="singleInstance"
@@ -15,12 +15,12 @@
         <activity-alias
             android:exported="true"
             android:name="${applicationId}.wxapi.WXEntryActivity"
-            android:targetActivity=".platforms.wechat.WXCallbackActivity" />
+            android:targetActivity=".platforms.weixin.WXCallbackActivity" />
 
         <activity-alias
             android:exported="true"
             android:name="${applicationId}.wxapi.WXPayEntryActivity"
-            android:targetActivity=".platforms.wechat.WXCallbackActivity" />
+            android:targetActivity=".platforms.weixin.WXCallbackActivity" />
 
         <!-- 微博-->
         <activity

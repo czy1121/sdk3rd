@@ -1,4 +1,4 @@
-package ezy.sdk3rd.social.platforms.wechat;
+package ezy.sdk3rd.social.platforms.weixin;
 
 import android.app.Activity;
 import android.content.Intent;
