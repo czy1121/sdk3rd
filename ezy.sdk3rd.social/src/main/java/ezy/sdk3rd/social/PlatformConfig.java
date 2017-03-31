@@ -35,15 +35,15 @@ public class PlatformConfig {
         ShareSDK.register(ShareTo.QZone, appId, TXShare.class);
     }
 
-    public static void useWechat(@NonNull String appId) {
-        AuthorizeSDK.register(AuthorizeVia.Wechat, appId, WXAuth.class);
+    public static void useWeixin(@NonNull String appId) {
+        AuthorizeSDK.register(AuthorizeVia.Weixin, appId, WXAuth.class);
 
         ShareSDK.register(ShareTo.WXSession, appId, WXShare.class);
         ShareSDK.register(ShareTo.WXTimeline, appId, WXShare.class);
         ShareSDK.register(ShareTo.WXFavorite, appId, WXShare.class);
     }
     public static void usePayments() {
-        PaymentSDK.register(PaymentVia.Wechat, WXPayment.class);
+        PaymentSDK.register(PaymentVia.Wxpay, WXPayment.class);
         PaymentSDK.register(PaymentVia.Alipay, Alipay.class);
     }
 }

@@ -19,8 +19,8 @@ android {
 
 
         addFieldsAndPlaceholders(it, [
-                APPID_WECHAT    : APPID_QQ,
-                APPID_QQ        : APPID_WECHAT,
+                APPID_QQ        : APPID_QQ,
+                APPID_WEIXIN    : APPID_WEIXIN,
                 APPID_WEIBO     : APPID_WEIBO,
 
         ])
