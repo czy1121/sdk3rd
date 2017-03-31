@@ -1,0 +1,38 @@
+<manifest package="ezy.sdk3rd.social"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application >
+
+        <!-- 微信 -->
+        <activity
+            android:name=".platforms.wechat.WXCallbackActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <activity-alias
+            android:exported="true"
+            android:name="${applicationId}.wxapi.WXEntryActivity"
+            android:targetActivity=".platforms.wechat.WXCallbackActivity" />
+
+        <activity-alias
+            android:exported="true"
+            android:name="${applicationId}.wxapi.WXPayEntryActivity"
+            android:targetActivity=".platforms.wechat.WXCallbackActivity" />
+
+        <!-- 微博-->
+        <activity
+            android:name=".platforms.weibo.WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>

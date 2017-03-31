@@ -1,0 +1,1 @@
+include ':app', ':ezy.sdk3rd.social', ':ezy.sdk3rd.3rd-qq', ':ezy.sdk3rd.3rd-alipay'

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ezy.sdk3rd.iml" filepath="$PROJECT_DIR$/ezy.sdk3rd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ezy.sdk3rd.3rd-alipay/ezy.sdk3rd.3rd-alipay.iml" filepath="$PROJECT_DIR$/ezy.sdk3rd.3rd-alipay/ezy.sdk3rd.3rd-alipay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ezy.sdk3rd.3rd-qq/ezy.sdk3rd.3rd-qq.iml" filepath="$PROJECT_DIR$/ezy.sdk3rd.3rd-qq/ezy.sdk3rd.3rd-qq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ezy.sdk3rd.social/ezy.sdk3rd.social.iml" filepath="$PROJECT_DIR$/ezy.sdk3rd.social/ezy.sdk3rd.social.iml" />
+    </modules>
+  </component>
+</project>
