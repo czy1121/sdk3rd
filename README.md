@@ -241,9 +241,16 @@ ShareSDK.make(this, new MoMusic(url))
 
 
 
+## 参考
 
+友盟+分享组件90%常见问题汇总
+http://bbs.umeng.com/thread-17764-1-1.html
 
+友盟各平台可分享内容预览
+http://dev.umeng.com/social/android/share-detail#5
 
+Android 不同平台分享内容的详细说明
+http://wiki.mob.com/不同平台分享内容的详细说明
 
 ## License
 
