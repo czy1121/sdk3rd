@@ -3,7 +3,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 group='com.github.czy1121'
 version='0.1.0'
-archivesBaseName='sdk-social'
+archivesBaseName='sdk3rd'
 
 android {
     compileSdkVersion project.ext.compileSdkVersion
