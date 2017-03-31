@@ -195,48 +195,30 @@ ShareSDK.register(String platformName, Class<IShareable> clazz);
 
 ``` java
 // 分享纯文本
-ShareSDK.make(this, text).share(platform, new OnSucceed<String>() {
-    @Override
-    public void onSucceed(String result) {
-        Toast.makeText(MainActivity.this, "分享成功", Toast.LENGTH_LONG).show();
-    }
-});
+ShareSDK.make(this, text).share(platform);
 // 分享纯图片
-ShareSDK.make(this, new MoImage(image)).share(platform, new OnSucceed<String>() {
-    @Override
-    public void onSucceed(String result) {
-        Toast.makeText(MainActivity.this, "分享成功", Toast.LENGTH_LONG).show();
-    }
-});
+ShareSDK.make(this, new MoImage(image)).share(platform);
 // 分享图文
-ShareSDK.make(this, text, new MoImage(image)).share(platform, new OnSucceed<String>() {
-    @Override
-    public void onSucceed(String result) {
-        Toast.makeText(MainActivity.this, "分享成功", Toast.LENGTH_LONG).show();
-    }
-});
+ShareSDK.make(this, text, new MoImage(image)).share(platform);
+
 // 分享网页链接
 ShareSDK.make(this, new MoWeb(url))
         .withTitle("这是标题")
         .withDescription("这是摘要")
         .withThumb(thumb)
         .share(platform, new OnSucceed<String>() {
-            @Override
-            public void onSucceed(String result) {
-                Toast.makeText(MainActivity.this, "分享成功", Toast.LENGTH_LONG).show();
-            }
+           @Override
+           public void onSucceed(String result) {
+               Toast.makeText(MainActivity.this, "分享成功", Toast.LENGTH_LONG).show();
+           }
         });
+
 // 分享音乐
 ShareSDK.make(this, new MoMusic(url))
         .withTitle("这是标题")
         .withDescription("这是摘要")
         .withThumb(thumb)
-        .share(platform, new OnSucceed<String>() {
-            @Override
-            public void onSucceed(String result) {
-                Toast.makeText(MainActivity.this, "分享成功", Toast.LENGTH_LONG).show();
-            }
-        });
+        .share(platform);
 ```
 
 
