@@ -84,7 +84,7 @@ dependencies {
 ``` java
 
 PlatformConfig.useQQ(BuildConfig.APPID_QQ);
-PlatformConfig.useWechat(BuildConfig.APPID_WECHAT);
+PlatformConfig.useWeixin(BuildConfig.APPID_WEIXIN);
 PlatformConfig.useWeibo(BuildConfig.APPID_WEIBO, "http://www.sina.com/");
 PlatformConfig.usePayments();
 

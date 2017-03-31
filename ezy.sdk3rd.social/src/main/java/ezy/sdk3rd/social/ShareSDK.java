@@ -14,7 +14,6 @@ import ezy.sdk3rd.social.share.ShareData;
 import ezy.sdk3rd.social.share.image.resource.ImageResource;
 import ezy.sdk3rd.social.share.media.IMediaObject;
 import ezy.sdk3rd.social.share.media.MoImage;
-import ezy.sdk3rd.social.share.media.MoWeb;
 
 public class ShareSDK {
     static Sdk<IShareable> sdk = new Sdk<>();
@@ -40,11 +39,6 @@ public class ShareSDK {
         mActivity = activity;
         mData.text = text;
         mData.media = media;
-    }
-
-    // 网页
-    public static ShareSDK makeWeb(Activity activity, String url) {
-        return new ShareSDK(activity, null, new MoWeb(url));
     }
 
     // 文本
