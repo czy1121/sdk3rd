@@ -27,23 +27,21 @@ public class Result {
 
     public String result;
     public String resultStatus;
-    public String resultText;
     public String memo;
+    public String resultText;
 
-    public Result(String rawResult) {
+    public Result(Map<String, String> raw) {
 
-        if (TextUtils.isEmpty(rawResult)) {
+        if (raw == null || raw.isEmpty()) {
             return;
         }
-
-        String[] resultParams = rawResult.split(";");
-        for (String resultParam : resultParams) {
-            if (resultParam.startsWith("resultStatus")) {
-                resultStatus = gatValue(resultParam, "resultStatus");
-            } else if (resultParam.startsWith("result")) {
-                result = gatValue(resultParam, "result");
-            } else if (resultParam.startsWith("memo")) {
-                memo = gatValue(resultParam, "memo");
+        for (String key : raw.keySet()) {
+            if (TextUtils.equals(key, "resultStatus")) {
+                resultStatus = raw.get(key);
+            } else if (TextUtils.equals(key, "result")) {
+                result = raw.get(key);
+            } else if (TextUtils.equals(key, "memo")) {
+                memo = raw.get(key);
             }
         }
         if (sResultStatus.containsKey(resultStatus)) {
@@ -70,8 +68,4 @@ public class Result {
         return "resultStatus={" + resultStatus + "};memo={" + memo + "};result={" + result + "}";
     }
 
-    private String gatValue(String content, String key) {
-        String prefix = key + "={";
-        return content.substring(content.indexOf(prefix) + prefix.length(), content.lastIndexOf("}"));
-    }
 }

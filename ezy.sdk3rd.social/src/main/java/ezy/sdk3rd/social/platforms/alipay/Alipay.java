@@ -33,7 +33,7 @@ public class Alipay implements IPayable {
             @Override
             protected Result doInBackground(String... params) {
                 final PayTask task = new PayTask(mActivity);
-                return new Result(task.pay(data, true));
+                return new Result(task.payV2(data, true));
             }
 
             @Override

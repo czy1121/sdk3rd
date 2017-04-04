@@ -5,7 +5,7 @@
 - 授权 目前支持 微信/QQ/新浪微博，客户端只需要配置APPID(新浪微博)
 - 分享 目前支持 微信(会话/朋友圈/收藏)，QQ/QZone，新浪微博
 - 支付 目前支持 支付宝/微信支付
-- 对于授权与分享，客户端只不用配置APPSECRET，只需要要APPID(新浪微博授权需要redirectUrl)
+- 对于授权与分享，客户端不用配置APPSECRET，只需要要APPID(新浪微博授权需要redirectUrl)
 - 对于支付，APPID包含在由后端动态返回的paydata里
 - 可注册自定义平台实现，满足特殊需求
 - 分享并未实现ui，需要自己提供ui
@@ -53,18 +53,6 @@
 
 ### 添加依赖
 
-[![](https://jitpack.io/v/czy1121/sdk3rd.svg)](https://jitpack.io/#czy1121/sdk3rd)
-
-``` groovy
-repositories {
-    maven { url "https://jitpack.io" }
-}
-dependencies {
-    compile 'com.github.czy1121:sdk3rd:0.1.0'
-}
-```
-
-或
 
 ``` groovy
 repositories {
@@ -72,8 +60,12 @@ repositories {
 }
 dependencies {
     compile 'com.github.czy1121.sdk3rd:sdk3rd:0.1.0'
-    compile 'com.github.czy1121.sdk3rd:sdk3rd-alipay:0.1.0'
+    compile 'com.github.czy1121.sdk3rd:sdk3rd-alipay:0.1.1'
     compile 'com.github.czy1121.sdk3rd:sdk3rd-qq:0.1.0'
+
+    compile 'com.sina.weibo.sdk:core:1.0.0:openDefaultRelease@aar'
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.0.2'
+
 }
 ```
 
@@ -235,6 +227,9 @@ http://dev.umeng.com/social/android/share-detail#5
 
 Android 不同平台分享内容的详细说明
 http://wiki.mob.com/不同平台分享内容的详细说明
+
+新浪微博SDK
+https://github.com/sinaweibosdk/weibo_android_sdk
 
 ## License
 
