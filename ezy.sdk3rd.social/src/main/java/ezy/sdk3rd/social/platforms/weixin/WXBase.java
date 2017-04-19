@@ -80,11 +80,15 @@ abstract class WXBase implements IResult, IWXAPIEventHandler {
                 break;
             }
         } else if (resp.errCode == BaseResp.ErrCode.ERR_USER_CANCEL) {
-            mCallback.onFailed(mActivity, ResultCode.RESULT_CANCELLED, "[" + resp.errCode + "]" + resp.errStr);
+            mCallback.onFailed(mActivity, ResultCode.RESULT_CANCELLED, toMessage(resp));
         } else {
-            mCallback.onFailed(mActivity, ResultCode.RESULT_FAILED, "[" + resp.errCode + "]" + resp.errStr);
+            mCallback.onFailed(mActivity, ResultCode.RESULT_FAILED, toMessage(resp));
         }
         mCallback.onCompleted(mActivity);
+    }
+
+    String toMessage(BaseResp resp) {
+        return "[" + resp.errCode + "]" + (resp.errStr == null ? "" : resp.errStr);
     }
 
     protected void onResultOk(PayResp resp) {

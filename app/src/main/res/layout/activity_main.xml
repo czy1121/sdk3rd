@@ -1,159 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="onShare"
+            type="android.view.View.OnClickListener"/>
+        <variable
+            name="onAuth"
+            type="android.view.View.OnClickListener"/>
+        <variable
+            name="onPay"
+            type="android.view.View.OnClickListener"/>
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="授权："
-            />
 
-        <TextView
-            android:id="@+id/btn_auth_weibo"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_dark"
-            android:gravity="center"
-            android:text="Weibo"
-            android:textColor="@android:color/white"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/btn_auth_wechat"
-            android:layout_width="100dp"
+            <EditText
+                android:id="@+id/txt_alipaydata"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="#dddddd"
+                android:gravity="top|left"
+                android:text="@string/alipaydata"
+                android:textSize="10sp"
+                />
+
+            <TextView
+                android:id="@+id/btn_alipay"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:onClick="@{onPay}"
+                android:text="alipay"
+                android:textColor="@android:color/white"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txt_wxpaydata"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="#dddddd"
+                android:gravity="top|left"
+                android:text="@string/wxpaydata"
+                android:textSize="10sp"
+                />
+
+            <TextView
+                android:id="@+id/btn_wxpay"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:onClick="@{onPay}"
+                android:text="wxpay"
+                android:textColor="@android:color/white"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#DDDDDD"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/sp_auth"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:entries="@array/auth_platforms"
+                android:spinnerMode="dropdown"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:onClick="@{onAuth}"
+                android:text="授权"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_dark"
-            android:gravity="center"
-            android:text="Wechat"
-            android:textColor="@android:color/white"
-            />
-        <TextView
-            android:id="@+id/btn_auth_qq"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_dark"
-            android:gravity="center"
-            android:text="QQ"
-            android:textColor="@android:color/white"
-            />
+            android:layout_marginTop="10dp"
+            android:background="#DDDDDD"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <Spinner
+                android:id="@+id/sp_share"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:entries="@array/share_platforms"
+                android:spinnerMode="dropdown"/>
+            <Spinner
+                android:id="@+id/sp_type"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:entries="@array/share_types"
+                android:spinnerMode="dropdown"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:onClick="@{onShare}"
+                android:text="分享"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="分享："
-            />
-
-        <TextView
-            android:id="@+id/btn_share_weibo"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_dark"
-            android:gravity="center"
-            android:text="Weibo"
-            android:textColor="@android:color/white"
-            />
-        <TextView
-            android:id="@+id/btn_share_qq"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_dark"
-            android:gravity="center"
-            android:text="QQ"
-            android:textColor="@android:color/white"
-            />
-        <TextView
-            android:id="@+id/btn_share_qzone"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_dark"
-            android:gravity="center"
-            android:text="QZone"
-            android:textColor="@android:color/white"
-            />
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:maxLines="1"
-            android:text="分享："
-            />
-
-        <TextView
-            android:id="@+id/btn_share_wxsession"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_dark"
-            android:gravity="center"
-            android:text="WXSession"
-            android:textColor="@android:color/white"
-            />
-        <TextView
-            android:id="@+id/btn_share_wxtimeline"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_dark"
-            android:gravity="center"
-            android:text="WXTimeline"
-            android:textColor="@android:color/white"
-            />
-        <TextView
-            android:id="@+id/btn_share_wxfavorite"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/holo_green_dark"
-            android:gravity="center"
-            android:text="WXFavorite"
-            android:textColor="@android:color/white"
-            />
-    </LinearLayout>
-</LinearLayout>
+</layout>

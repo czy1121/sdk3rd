@@ -26,7 +26,7 @@
 
 ### 关于支付
 
-很多支付类库会在客户端处理商品支付信息，其实这是不必要要的，直接由服务端返回数据并交给支付SDK，然后处理支付结果就好了
+很多支付类库会在客户端处理商品支付信息，其实这是不必要的，直接由服务端返回数据并交给支付SDK，然后处理支付结果就好了
 
 
 ### 关于分享
@@ -45,8 +45,26 @@
 |WXSession|o|o|x|o|o|o|
 |WXTimeline|o|o|x|o|o|o|
 |Weibo|o|o|o|x|x|x|
+|SendToQQ|o|o|x|x|x|x|
+|SendToWXS|o|o|x|x|x|x|
+|SendToWXT|o|o|x|x|x|x|
 
+## Demo
 
+运行demo需要在`gradle.properties`中修改app的**包名，签名和为app申请的APPID**
+
+```
+
+APPLICATION_ID=ezy.demo.sdk3rd
+
+APPID_QQ=YOUR_APPID
+APPID_WEIXIN=YOUR_APPID
+APPID_WEIBO=YOUR_APPID
+
+SINGING_ALIAS=androiddebugkey
+SINGING_PASSWORD=android
+SINGING_FILE=debug.keystore
+```
 
 ## 使用方法
 
@@ -59,7 +77,7 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 dependencies {
-    compile 'com.github.czy1121.sdk3rd:sdk3rd:0.1.0'
+    compile 'com.github.czy1121.sdk3rd:sdk3rd:0.1.2'
     compile 'com.github.czy1121.sdk3rd:sdk3rd-alipay:0.1.1'
     compile 'com.github.czy1121.sdk3rd:sdk3rd-qq:0.1.0'
 

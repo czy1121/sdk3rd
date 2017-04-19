@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
 import com.tencent.mm.opensdk.modelmsg.WXImageObject;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
@@ -43,16 +44,21 @@ public class WXShare extends WXBase implements IShareable {
             return;
         }
         mCallback = callback;
-        new AsyncTask<ShareData, Void, Void>() {
+        new AsyncTask<ShareData, Void, BaseReq>() {
             @Override
-            protected Void doInBackground(ShareData... params) {
-                doShare(params[0]);
-                return null;
+            protected BaseReq doInBackground(ShareData... params) {
+                return makeReq(params[0]);
+            }
+
+            @Override
+            protected void onPostExecute(BaseReq req) {
+                mCallback.onStarted(mActivity);
+                mApi.sendReq(req);
             }
         }.execute(data);
     }
 
-    void doShare(ShareData data) {
+    BaseReq makeReq(ShareData data) {
 
         WXMediaMessage message = new WXMediaMessage();
         if (data.hasTitle()) {
@@ -109,8 +115,7 @@ public class WXShare extends WXBase implements IShareable {
         req.message = message;
         req.scene = toScene(mPlatform.getName());
 
-        mCallback.onStarted(mActivity);
-        mApi.sendReq(req);
+        return req;
     }
 
     @Override

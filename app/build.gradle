@@ -17,6 +17,9 @@ android {
         versionCode 1000
         versionName "1.0.0"
 
+        println("===> " + APPID_QQ)
+        println("===> " + APPID_WEIXIN)
+        println("===> " + APPID_WEIBO)
 
         addFieldsAndPlaceholders(it, [
                 APPID_QQ        : APPID_QQ,
@@ -24,8 +27,12 @@ android {
                 APPID_WEIBO     : APPID_WEIBO,
 
         ])
+
     }
 
+    dataBinding {
+        enabled = true
+    }
     signingConfigs {
         release {
             keyAlias SINGING_ALIAS

@@ -7,6 +7,7 @@ import ezy.sdk3rd.social.payment.PaymentVia;
 import ezy.sdk3rd.social.platforms.alipay.Alipay;
 import ezy.sdk3rd.social.platforms.qq.QQAuth;
 import ezy.sdk3rd.social.platforms.qq.TXShare;
+import ezy.sdk3rd.social.platforms.send.SendShare;
 import ezy.sdk3rd.social.platforms.weixin.WXAuth;
 import ezy.sdk3rd.social.platforms.weixin.WXPayment;
 import ezy.sdk3rd.social.platforms.weixin.WXShare;
@@ -33,6 +34,7 @@ public class PlatformConfig {
 
         ShareSDK.register(ShareTo.QQ, appId, TXShare.class);
         ShareSDK.register(ShareTo.QZone, appId, TXShare.class);
+        ShareSDK.register(ShareTo.ToQQ, "", SendShare.class);
     }
 
     public static void useWeixin(@NonNull String appId) {
@@ -41,6 +43,8 @@ public class PlatformConfig {
         ShareSDK.register(ShareTo.WXSession, appId, WXShare.class);
         ShareSDK.register(ShareTo.WXTimeline, appId, WXShare.class);
         ShareSDK.register(ShareTo.WXFavorite, appId, WXShare.class);
+        ShareSDK.register(ShareTo.ToWXSession, "", SendShare.class);
+        ShareSDK.register(ShareTo.ToWXTimeline, "", SendShare.class);
     }
     public static void usePayments() {
         PaymentSDK.register(PaymentVia.Wxpay, WXPayment.class);

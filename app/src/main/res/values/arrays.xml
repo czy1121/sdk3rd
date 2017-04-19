@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="auth_platforms">
+        <item>Weixin</item>
+        <item>QQ</item>
+        <item>Weibo</item>
+    </array>
+    <array name="share_platforms">
+        <item>Weibo</item>
+        <item>QQ</item>
+        <item>QZone</item>
+        <item>WXSession</item>
+        <item>WXTimeline</item>
+        <item>WXFavorite</item>
+        <item>ToWXSession</item>
+        <item>ToWXTimeline</item>
+        <item>ToQQ</item>
+    </array>
+    <array name="share_types">
+        <item>链接</item>
+        <item>纯文本</item>
+        <item>纯图片</item>
+        <item>图文</item>
+        <item>音乐</item>
+        <item>视频</item>
+    </array>
+</resources>
