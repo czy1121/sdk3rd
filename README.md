@@ -10,8 +10,10 @@
 - 可注册自定义平台实现，满足特殊需求
 - 分享并未实现ui，需要自己提供ui
 
+![screenshot](https://raw.githubusercontent.com/czy1121/sdk3rd/master/screenshot.png)
 
 目前这个库还不稳定，有些细节并未仔细考虑，有些功能也并未进行测试，支持的平台也不多，欢迎大家 star/issue/pr，共同完善这个库
+
 
 ### 关于授权
 
@@ -248,6 +250,7 @@ http://wiki.mob.com/不同平台分享内容的详细说明
 
 新浪微博SDK
 https://github.com/sinaweibosdk/weibo_android_sdk
+
 
 ## License
 
