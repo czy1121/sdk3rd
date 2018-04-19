@@ -1,8 +1,11 @@
+plugins {
+    id "com.github.dcendents.android-maven" version "2.0"
+}
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 
-group='com.github.czy1121'
-version='0.1.2'
+group='ezy.sdk3rd'
+//group='com.github.czy1121'
+version='0.1.3'
 archivesBaseName='sdk3rd'
 
 android {
@@ -35,6 +38,6 @@ dependencies {
     provided project(":ezy.sdk3rd.3rd-alipay")
     provided project(":ezy.sdk3rd.3rd-qq")
 
-    provided 'com.sina.weibo.sdk:core:1.0.0:openDefaultRelease@aar'
-    provided 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.0.2'
+    provided 'com.sina.weibo.sdk:core:2.0.3:openDefaultRelease@aar'
+    provided 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.4.0'
 }

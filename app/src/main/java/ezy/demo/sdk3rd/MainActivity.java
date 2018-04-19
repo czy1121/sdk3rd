@@ -91,8 +91,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-        FileResource file = new FileResource(new File("/storage/emulated/0/2017_03_23_16_36_07_receipt.jpg"));
-        UrlResource imageUrl = new UrlResource("https://dn-mhke0kuv.qbox.me/e79942a9b8d8cdbb8dc3.jpg");
+
+        FileResource thumb = new FileResource(new File("/storage/emulated/0/thumb.jpg"));
+
+        FileResource file = new FileResource(new File("/storage/emulated/0/DCIM/Camera/IMG_20171014_224236.jpg"));
+        UrlResource imageUrl = new UrlResource("http://435a362e.ngrok.io/images/cat.jpg");
         ResIdResource resId = new ResIdResource(this, R.mipmap.ic_launcher, true);
 
 
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ShareSDK.make(this, "这是文本～～～").share(platform, onSucceed);
             break;
         case 2: // image
-            ShareSDK.make(this, new MoImage(file)).share(platform, onSucceed);
+            ShareSDK.make(this, new MoImage(file)).withThumb(thumb).share(platform, onSucceed);
             break;
         case 3: // text+image
             ShareSDK.make(this, "这是文本～～～", new MoImage(file)).share(platform, onSucceed);

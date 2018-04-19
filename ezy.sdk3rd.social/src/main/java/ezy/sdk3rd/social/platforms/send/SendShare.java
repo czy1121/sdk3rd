@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import java.util.List;
 
@@ -71,6 +72,8 @@ public class SendShare implements IShareable {
             intent.setType("image/*");
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
+
+
             ImageResource resource = ((MoImage) data.media).resource;
             if (resource instanceof BitmapResource) {
                 final Uri uri = Uri.parse(MediaStore.Images.Media.insertImage(mActivity.getContentResolver(), resource.toBitmap(), null, null));
@@ -78,7 +81,10 @@ public class SendShare implements IShareable {
             } else if (resource instanceof FileResource) {
                 intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(((FileResource) resource).file));
             } else {
-                intent.putExtra(Intent.EXTRA_STREAM, Uri.parse(resource.toUri()));
+                Log.e("ezy", "" + Uri.parse(resource.toUri()));
+                intent.setData(Uri.parse(resource.toUri()));
+//                final Uri uri = Uri.parse(MediaStore.Images.Media.insertImage(mActivity.getContentResolver(), data.thumb.toBitmap(), null, null));
+//                intent.putExtra(Intent.EXTRA_STREAM, uri);
             }
             break;
         case IMediaObject.TYPE_TEXT:
@@ -106,8 +112,8 @@ public class SendShare implements IShareable {
     }
 
     boolean isApplicationInstalled(Context context, String packageName) {
-        PackageManager packageManager = context.getPackageManager();
-        List<PackageInfo> list = packageManager.getInstalledPackages(0);
+        PackageManager pm = context.getPackageManager();
+        List<PackageInfo> list = pm.getInstalledPackages(0);
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).packageName.equalsIgnoreCase(packageName)) {
                 return true;

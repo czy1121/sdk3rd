@@ -1,8 +1,10 @@
+plugins {
+    id "com.github.dcendents.android-maven" version "2.0"
+}
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 
 group='com.github.czy1121'
-version='0.1.0'
+version='0.1.1'
 archivesBaseName='sdk3rd-alipay'
 
 android {

@@ -74,18 +74,21 @@ public class WXShare extends WXBase implements IShareable {
         switch (data.type()) {
         case IMediaObject.TYPE_TEXT:
             message.mediaObject = new WXTextObject(data.text);
+            message.description = data.text;
             break;
         case IMediaObject.TYPE_WEB:
             message.mediaObject = new WXWebpageObject(((MoWeb) data.media).url);
             break;
         case IMediaObject.TYPE_EMOJI:
         case IMediaObject.TYPE_IMAGE: {
+
             MoImage mo = (MoImage) data.media;
             WXImageObject wxo = new WXImageObject();
             wxo.imagePath = mo.toUri();
             if (TextUtils.isEmpty(wxo.imagePath)) {
                 wxo.imageData = mo.toBytes();
             }
+//            wxo.imageData = data.thumb.toBytes();
             message.mediaObject = wxo;
         }
         break;

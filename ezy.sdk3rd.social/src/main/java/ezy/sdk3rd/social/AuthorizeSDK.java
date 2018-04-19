@@ -26,7 +26,7 @@ public class AuthorizeSDK {
         sdk.register(factory);
     }
 
-    public static void authorize(Activity activity, String platform, OnSucceed<String> listener) {
+    public static void authorize(final Activity activity, String platform, OnSucceed<String> listener) {
         authorize(activity, platform, new DefaultCallback(sdk.getDefaultCallback(), listener));
     }
 
