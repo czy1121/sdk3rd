@@ -4,7 +4,7 @@ plugins {
 apply plugin: 'com.android.library'
 
 group='com.github.czy1121'
-version='0.1.3'
+version='0.1.4'
 archivesBaseName='sdk3rd-alipay'
 
 android {
@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 task sourcesJar(type: Jar) {

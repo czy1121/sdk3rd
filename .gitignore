@@ -4,6 +4,7 @@ local.properties
 app/gradle.properties
 .idea/workspace.xml
 .idea/libraries/
+.idea/caches/
 build/
 .DS_Store
 */.DS_Store
