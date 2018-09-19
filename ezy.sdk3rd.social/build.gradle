@@ -5,7 +5,7 @@ apply plugin: 'com.android.library'
 
 //group='ezy.sdk3rd'
 group='com.github.czy1121'
-version='0.1.4'
+version='0.1.5'
 archivesBaseName='sdk3rd'
 
 android {
