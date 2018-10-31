@@ -3,18 +3,16 @@ plugins {
 }
 apply plugin: 'com.android.library'
 
-//group='ezy.sdk3rd'
-group='com.github.czy1121'
-version='0.1.5'
-archivesBaseName='sdk3rd'
+group=SDK3RD_GROUP
+version=SDK3RD_VERSION
+archivesBaseName='sdk3rd-qq'
 
 android {
-    compileSdkVersion project.ext.compileSdkVersion
-    buildToolsVersion project.ext.buildToolsVersion
+    compileSdkVersion compile_sdk_version
 
     defaultConfig {
-        minSdkVersion project.ext.minSdkVersion
-        targetSdkVersion project.ext.targetSdkVersion
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
     }
     buildTypes {
         release {

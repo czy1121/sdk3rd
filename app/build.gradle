@@ -7,13 +7,12 @@ def addFieldsAndPlaceholders = { flavor, items ->
     flavor.addManifestPlaceholders(items)
 }
 android {
-    compileSdkVersion project.ext.compileSdkVersion
-    buildToolsVersion project.ext.buildToolsVersion
+    compileSdkVersion compile_sdk_version
 
     defaultConfig {
         applicationId APPLICATION_ID
-        minSdkVersion project.ext.minSdkVersion
-        targetSdkVersion project.ext.targetSdkVersion
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
         versionCode 1000
         versionName "1.0.0"
 
@@ -70,5 +69,5 @@ dependencies {
     implementation project(':ezy.sdk3rd.3rd-qq')
 
     implementation 'com.sina.weibo.sdk:core:2.0.3:openDefaultRelease@aar'
-    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.4.0'
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.1.6'
 }
