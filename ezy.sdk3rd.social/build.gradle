@@ -5,7 +5,7 @@ apply plugin: 'com.android.library'
 
 group=SDK3RD_GROUP
 version=SDK3RD_VERSION
-archivesBaseName='sdk3rd-qq'
+archivesBaseName='sdk3rd-social'
 
 android {
     compileSdkVersion compile_sdk_version
