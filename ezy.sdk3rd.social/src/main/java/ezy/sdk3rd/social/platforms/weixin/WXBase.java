@@ -15,7 +15,6 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
-import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
 
 import ezy.sdk3rd.social.sdk.IResult;
@@ -34,7 +33,7 @@ abstract class WXBase implements IResult, IWXAPIEventHandler {
 
     static WeakHashMap<IResult, Boolean> services = new WeakHashMap<>();
 
-    final protected WeakReference<Activity> mRef;
+    final protected Activity mActivity;
     final protected Platform mPlatform;
 
     protected OnCallback mCallback;
@@ -42,7 +41,7 @@ abstract class WXBase implements IResult, IWXAPIEventHandler {
     IWXAPI mApi;
 
     protected WXBase(Activity activity, Platform platform) {
-        mRef = new WeakReference<>(activity);
+        mActivity = activity;
         mPlatform = platform;
         if (!TextUtils.isEmpty(platform.getAppId())) {
             mApi = WXAPIFactory.createWXAPI(activity.getApplicationContext(), platform.getAppId(), true);
@@ -81,11 +80,11 @@ abstract class WXBase implements IResult, IWXAPIEventHandler {
                 break;
             }
         } else if (resp.errCode == BaseResp.ErrCode.ERR_USER_CANCEL) {
-            mCallback.onFailed(mRef.get(), ResultCode.RESULT_CANCELLED, toMessage(resp));
+            mCallback.onFailed(mActivity, ResultCode.RESULT_CANCELLED, toMessage(resp));
         } else {
-            mCallback.onFailed(mRef.get(), ResultCode.RESULT_FAILED, toMessage(resp));
+            mCallback.onFailed(mActivity, ResultCode.RESULT_FAILED, toMessage(resp));
         }
-        mCallback.onCompleted(mRef.get());
+        mCallback.onCompleted(mActivity);
     }
 
     String toMessage(BaseResp resp) {

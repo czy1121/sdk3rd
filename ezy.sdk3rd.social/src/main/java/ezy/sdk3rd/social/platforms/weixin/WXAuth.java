@@ -26,7 +26,7 @@ public class WXAuth extends WXBase implements IAuthorize {
     public void authorize(@NonNull OnCallback<String> callback) {
         mCallback = callback;
         if (!mApi.isWXAppInstalled()) {
-            mCallback.onFailed(mRef.get(), ResultCode.RESULT_FAILED, "您未安装微信!");
+            mCallback.onFailed(mActivity, ResultCode.RESULT_FAILED, "您未安装微信!");
             return;
         }
 
@@ -35,7 +35,7 @@ public class WXAuth extends WXBase implements IAuthorize {
         req.state = "wechat";
 
         Log.e(TAG, "send start");
-        mCallback.onStarted(mRef.get());
+        mCallback.onStarted(mActivity);
         boolean ret = mApi.sendReq(req);
         Log.e(TAG, "send end " + ret);
     }
@@ -43,7 +43,7 @@ public class WXAuth extends WXBase implements IAuthorize {
     @Override
     protected void onResultOk(SendAuth.Resp resp) {
         Log.e(TAG, "code = " + resp.code);
-        mCallback.onSucceed(mRef.get(), "code|" + resp.code);
+        mCallback.onSucceed(mActivity, "code|" + resp.code);
     }
 
 }
