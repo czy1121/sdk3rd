@@ -54,68 +54,16 @@ public class Sdk<T extends IResult> {
                 api = factory.create(activity);
                 if (api != null) {
                     sub.put(platform, api);
+                    final T _api = api;
+                    activity.getApplication().registerActivityLifecycleCallbacks(new LifecycleCallback(activity, new Runnable() {
+                        @Override
+                        public void run() {
+                            mPlatforms.put(platform, _api);
+                        }
+                    }));
                 }
             }
         }
-
-
-
-
-
-
-
-
-//        T api = mPlatforms.get(platform);
-//        if (api == null) {
-//            IFactory<T> factory = mFactories.get(platform);
-//            if (factory != null) {
-//                api = factory.create(activity);
-//                if (api != null) {
-//                    mPlatforms.put(platform, api);
-//                    final T _api = api;
-//                    activity.getApplication().registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
-//                        @Override
-//                        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onActivityStarted(Activity activity) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onActivityResumed(Activity activity) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onActivityPaused(Activity activity) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onActivityStopped(Activity activity) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-//
-//                        }
-//
-//                        @Override
-//                        public void onActivityDestroyed(Activity a) {
-//                            if (activity == a) {
-//                                a.getApplication().unregisterActivityLifecycleCallbacks(this);
-//                                mPlatforms.put(platform, _api);
-//                            }
-//
-//                        }
-//                    });
-//                }
-//            }
-//        }
         return api;
     }
 
@@ -128,4 +76,54 @@ public class Sdk<T extends IResult> {
             }
         }
     }
+
+    private class LifecycleCallback implements Application.ActivityLifecycleCallbacks {
+
+        final private Activity _activity;
+        final private Runnable _runnable;
+        public LifecycleCallback(Activity activity, Runnable runnable) {
+            _activity = activity;
+            _runnable = runnable;
+        }
+
+        @Override
+        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+
+        }
+
+        @Override
+        public void onActivityStarted(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityResumed(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityPaused(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityStopped(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+
+        }
+
+        @Override
+        public void onActivityDestroyed(Activity activity) {
+            if (activity == _activity) {
+                activity.getApplication().unregisterActivityLifecycleCallbacks(this);
+                _runnable.run();
+            }
+
+        }
+    }
+
 }
