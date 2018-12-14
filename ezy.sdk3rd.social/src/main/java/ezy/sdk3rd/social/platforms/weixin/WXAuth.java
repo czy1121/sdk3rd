@@ -6,7 +6,11 @@ import android.util.Log;
 
 import com.tencent.mm.opensdk.modelmsg.SendAuth;
 
+import java.io.Closeable;
+import java.io.IOException;
+
 import ezy.sdk3rd.social.authorize.IAuthorize;
+import ezy.sdk3rd.social.sdk.IDisposable;
 import ezy.sdk3rd.social.sdk.OnCallback;
 import ezy.sdk3rd.social.sdk.Platform;
 import ezy.sdk3rd.social.sdk.ResultCode;
@@ -15,7 +19,7 @@ import ezy.sdk3rd.social.sdk.ResultCode;
  * Created by ezy on 17/3/18.
  */
 
-public class WXAuth extends WXBase implements IAuthorize {
+public class WXAuth extends WXBase implements IAuthorize, IDisposable {
 
     WXAuth(Activity activity, Platform platform) {
         super(activity, platform);
@@ -46,4 +50,8 @@ public class WXAuth extends WXBase implements IAuthorize {
         mCallback.onSucceed(mActivity, "code|" + resp.code);
     }
 
+    @Override
+    public void onDispose() {
+        services.remove(this);
+    }
 }

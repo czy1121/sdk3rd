@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 
+import java.io.Closeable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -54,13 +55,7 @@ public class Sdk<T extends IResult> {
                 api = factory.create(activity);
                 if (api != null) {
                     sub.put(platform, api);
-                    final T _api = api;
-                    activity.getApplication().registerActivityLifecycleCallbacks(new LifecycleCallback(activity, new Runnable() {
-                        @Override
-                        public void run() {
-                            mPlatforms.put(platform, _api);
-                        }
-                    }));
+                    activity.getApplication().registerActivityLifecycleCallbacks(new LifecycleCallback(activity, api));
                 }
             }
         }
@@ -80,10 +75,10 @@ public class Sdk<T extends IResult> {
     private class LifecycleCallback implements Application.ActivityLifecycleCallbacks {
 
         final private Activity _activity;
-        final private Runnable _runnable;
-        public LifecycleCallback(Activity activity, Runnable runnable) {
+        final private IResult _api;
+        public LifecycleCallback(Activity activity, IResult api) {
             _activity = activity;
-            _runnable = runnable;
+            _api = api;
         }
 
         @Override
@@ -120,7 +115,9 @@ public class Sdk<T extends IResult> {
         public void onActivityDestroyed(Activity activity) {
             if (activity == _activity) {
                 activity.getApplication().unregisterActivityLifecycleCallbacks(this);
-                _runnable.run();
+                if (_api instanceof IDisposable) {
+                    ((IDisposable) _api).onDispose();
+                }
             }
 
         }
