@@ -37,5 +37,5 @@ dependencies {
     compileOnly project(":ezy.sdk3rd.3rd-qq")
 
     compileOnly 'com.sina.weibo.sdk:core:2.0.3:openDefaultRelease@aar'
-    compileOnly 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.1.6'
+    compileOnly 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.4'
 }

@@ -8,7 +8,8 @@
             android:name=".platforms.weixin.WXCallbackActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:launchMode="singleInstance"
+            android:taskAffinity="${applicationId}"
+            android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <activity-alias
